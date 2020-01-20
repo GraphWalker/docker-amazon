@@ -1,6 +1,7 @@
 # docker-amazon
 
 ## To build:
+Building the image by your own. This is not required. You can pull it from the hub.docker.com directly. See section *To run* below.
 ```
 docker build -t graphwalker/amazon .
 ```
