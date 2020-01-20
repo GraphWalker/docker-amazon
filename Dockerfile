@@ -1,21 +1,13 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
+  openjdk-8-jre \
   openjdk-8-jdk \
   maven \
   git \
-  wget \
-  bzip2 \
   firefox && \
-  apt-get remove firefox -y && \
+  apt remove -y openjdk-11-jre-headless && \
   rm -rf /var/cache/apt/
-
-RUN cd /usr/local && \
-  wget http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/47.0.1/linux-x86_64/en-US/firefox-47.0.1.tar.bz2 && \
-  ls -l && \
-  tar xvjf firefox-47.0.1.tar.bz2 && \
-  ln -s /usr/local/firefox/firefox /usr/bin/firefox
-
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
